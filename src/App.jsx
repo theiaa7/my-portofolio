@@ -1,8 +1,34 @@
 import { useState, useEffect } from "react";
-import { Github, Linkedin, Mail, Sun, Moon, Code, Database, Globe, Terminal } from "lucide-react";
+import { Github, Linkedin, Mail, Sun, Moon, Code, Database, Globe, Terminal, Youtube, ChartLine, BrainCircuit } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function App() {
+    const experiences = [
+    {
+      title: "Production Planner and Inventory Control",
+      at: "PT.Mulia Cemerlang Abadi Multi Industry",
+      time: "1 Year.",
+      desc: "Create Production Planning based on order and time on delivery, controlling production running from materials arrival until shipping.",
+    },
+    {
+      title: "Practical Lecturer Assistant, Lead coordinator of operations",
+      at: "Mathematics and Science Faculty, Computer Science Major, Universitas Pakuan",
+      time: "3 Years.",
+      desc: "Work under lecturer for practice class session, teaching and create learning modules for practice session, become lead operations coordinator for 1 year. Mainly rensponsible for Software Engineering fields and Data Science fields practice sessions.",
+    },
+    {
+      title: "Tech support intern",
+      at: "Badan Kesatuan Bangsa dan Politik Kota Bogor",
+      time: "3 Months.",
+      desc: "IT support for BAKESBANGPOL, mainly responsible for software and hardware operations.",
+    },
+    {
+      title: "Advance Teacher",
+      at: "Koding Next",
+      time: "1 Year.",
+      desc: "Teaching advance website development, and game development.",
+    },
+  ];
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
@@ -17,7 +43,7 @@ export default function App() {
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-500">
       {/* HEADER */}
       <header className="w-full border-b border-gray-300 dark:border-gray-700 p-4 flex justify-between items-center">
-        <h1 className="text-2xl font-bold">My Portfolio</h1>
+        <h1 className="text-2xl font-bold">theiacode</h1>
         <button
           onClick={() => setDarkMode(!darkMode)}
           className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition"
@@ -41,9 +67,12 @@ export default function App() {
               alt="Profile"
               className="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-gray-300 dark:border-gray-700 object-cover object-center"
             />
-            <h2 className="text-xl font-semibold">Bryan Alsty</h2>
+            <h2 className="text-xl font-semibold">Febryan Gerald El Baari Pyoh</h2>
             <p className="text-sm text-gray-600 dark:text-gray-400">
-              Web Developer & Data Enthusiast
+              Software Engineer & Data Analyst
+            </p>
+            <p className="text-sm text-gray-600 dark:text-gray-400">
+              Freelance, Part of Google Developer Group Bogor
             </p>
           </motion.div>
 
@@ -57,15 +86,23 @@ export default function App() {
             <div className="space-y-2">
               <div className="flex items-center gap-3 hover:text-blue-500 cursor-pointer">
                 <Github className="w-5 h-5" />
-                <span>github.com/username</span>
+                <span>github.com/theiaa7</span>
+              </div>
+              <div className="flex items-center gap-3 hover:text-blue-500 cursor-pointer">
+                <Youtube className="w-5 h-5" />
+                <span>youtube.com/@theiacode</span>
               </div>
               <div className="flex items-center gap-3 hover:text-blue-500 cursor-pointer">
                 <Linkedin className="w-5 h-5" />
-                <span>linkedin.com/in/username</span>
+                <span>linkedin.com/in/theiaa7</span>
               </div>
               <div className="flex items-center gap-3 hover:text-blue-500 cursor-pointer">
                 <Mail className="w-5 h-5" />
-                <span>email@example.com</span>
+                <span>ryan.alsty@gmail.com</span>
+              </div>
+              <div className="flex items-center gap-3 hover:text-blue-500 cursor-pointer">
+                <Mail className="w-5 h-5" />
+                <span>bryanpyoh@gmail.com</span>
               </div>
             </div>
           </motion.div>
@@ -92,7 +129,15 @@ export default function App() {
               </div>
               <div className="flex items-center gap-2">
                 <Terminal className="w-4 h-4" />
-                <span>Go</span>
+                <span>Laravel</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <ChartLine className="w-4 h-4" />
+                <span>Tableau</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <BrainCircuit className="w-4 h-4" />
+                <span>Machine Learning</span>
               </div>
             </div>
           </motion.div>
@@ -107,9 +152,9 @@ export default function App() {
             transition={{ duration: 0.6 }}
             className="p-6 rounded-2xl shadow-lg bg-gradient-to-r from-blue-500 to-purple-600 text-white"
           >
-            <h2 className="text-3xl font-bold mb-2">Welcome to My Portfolio</h2>
+            <h2 className="text-3xl font-bold mb-2">Never too late.</h2>
             <p className="text-lg">
-              Explore my projects, experience, and skills!
+              Explore about my world, experience, and skills!
             </p>
           </motion.div>
 
@@ -120,18 +165,24 @@ export default function App() {
             transition={{ duration: 0.6 }}
             className="p-4 rounded-2xl shadow-lg bg-white dark:bg-gray-800"
           >
-            <h2 className="text-2xl font-bold mb-4">Projects</h2>
-            <div className="grid sm:grid-cols-2 gap-4">
-              {[1, 2, 3, 4].map((p) => (
-                <motion.div
-                  key={p}
-                  whileHover={{ scale: 1.05 }}
-                  className="p-3 rounded-xl bg-gray-100 dark:bg-gray-700 shadow cursor-pointer"
-                >
-                  <h3 className="font-semibold">Project {p}</h3>
-                  <p className="text-sm">Deskripsi singkat project {p}...</p>
-                </motion.div>
-              ))}
+            <h2 className="text-2xl font-bold mb-4">About</h2>
+            <div className="grid sm:grid-cols-1 gap-4">
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                className="p-3 rounded-xl bg-gray-100 dark:bg-gray-700 shadow cursor-pointer"
+              >
+                <h3 className="font-semibold">As a Software Engineer</h3>
+                <p className="text-sm">I’m a passionate software engineer who loves exploring and experimenting with new ideas. I enjoy working in a team environment where I can learn from others, share insights, and grow together. While I may not have years of experience yet, I bring strong curiosity, adaptability, and enthusiasm to every project I take on. For me, software engineering isn’t just about writing code—it’s about solving problems, creating meaningful solutions, and continuously improving.</p>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                className="p-3 rounded-xl bg-gray-100 dark:bg-gray-700 shadow cursor-pointer"
+              >
+                <h3 className="font-semibold">As a Data Analyst</h3>
+                <p className="text-sm">Whilst I mainly focusing on Software Engineering, I am also fascinated by the power of data to uncover insights and drive decisions. My experience includes working with machine learning models, data analysis, and predictive modeling. I enjoy translating raw data into actionable knowledge that can support real-world applications.</p>
+              </motion.div>
+
             </div>
           </motion.div>
 
@@ -144,14 +195,16 @@ export default function App() {
           >
             <h2 className="text-2xl font-bold mb-4">Experience</h2>
             <div className="space-y-3">
-              {[1, 2].map((e) => (
+              {experiences.map((exp, i) => (
                 <motion.div
-                  key={e}
+                  key={i}
                   whileHover={{ scale: 1.02 }}
                   className="p-3 rounded-xl bg-gray-100 dark:bg-gray-700 shadow cursor-pointer"
                 >
-                  <h3 className="font-semibold">Experience {e}</h3>
-                  <p className="text-sm">Deskripsi pengalaman {e}...</p>
+                  <h3 className="font-semibold">{exp.title}</h3>
+                  <p className="text-m"><b>{exp.time}</b> at {exp.at}</p>
+                  <hr class="my-4 border-gray-800"></hr>
+                  <p className="text-sm text-justify mt-2 mb-2">{exp.desc}</p>
                 </motion.div>
               ))}
             </div>
