@@ -86,23 +86,23 @@ export default function App() {
             <div className="space-y-2">
               <div className="flex items-center gap-3 hover:text-blue-500 cursor-pointer">
                 <Github className="w-5 h-5" />
-                <span>github.com/theiaa7</span>
+                <span><a href="github.com/theiaa7">Github</a></span>
               </div>
               <div className="flex items-center gap-3 hover:text-blue-500 cursor-pointer">
                 <Youtube className="w-5 h-5" />
-                <span>youtube.com/@theiacode</span>
+                <span><a href="youtube.com/@theiacode">Youtube</a></span>
               </div>
               <div className="flex items-center gap-3 hover:text-blue-500 cursor-pointer">
                 <Linkedin className="w-5 h-5" />
-                <span>linkedin.com/in/theiaa7</span>
+                <span><a href="linkedin.com/in/theiaa7">LinkedIn</a></span>
               </div>
               <div className="flex items-center gap-3 hover:text-blue-500 cursor-pointer">
                 <Mail className="w-5 h-5" />
-                <span>ryan.alsty@gmail.com</span>
+                <span><a href="ryan.alsty@gmail.com">ryan.alsty@gmail.com</a></span>
               </div>
               <div className="flex items-center gap-3 hover:text-blue-500 cursor-pointer">
                 <Mail className="w-5 h-5" />
-                <span>bryanpyoh@gmail.com</span>
+                <span><a href="bryanpyoh@gmail.com">bryanpyoh@gmail.com</a></span>
               </div>
             </div>
           </motion.div>
