@@ -68,7 +68,7 @@ export default function App() {
               className="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-gray-300 dark:border-gray-700 object-cover object-center"
             />
             <h2 className="text-xl font-semibold">Febryan Gerald El Baari Pyoh</h2>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
+            <p className="text-sm text-gray-900 dark:text-gray-100 hover:text-blue-500 dark:hover:text-blue-500 transition-colors duration-300">
               Software Engineer & Data Analyst
             </p>
             <p className="text-sm text-gray-600 dark:text-gray-400">
@@ -83,26 +83,26 @@ export default function App() {
             className="p-4 rounded-2xl shadow-lg bg-white dark:bg-gray-800"
           >
             <h2 className="text-xl font-semibold mb-3">Contact</h2>
-            <div className="space-y-2">
-              <div className="flex items-center gap-3 hover:text-blue-500 cursor-pointer">
-                <Github className="w-5 h-5" />
-                <span><a href="github.com/theiaa7">Github</a></span>
+            <div className="space-y-2 transition-colors duration-300">
+              <div className="flex items-center gap-3 cursor-pointer group hover:text-blue-500">
+                <Github className="w-5 h-5 transition-colors duration-300 group-hover:text-blue-500" />
+                <span><a href="github.com/theiaa7" className="no-underline text-gray-900 dark:text-gray-100 hover:text-blue-500 dark:hover:text-blue-500 transition-colors duration-300">Github</a></span>
               </div>
               <div className="flex items-center gap-3 hover:text-blue-500 cursor-pointer">
                 <Youtube className="w-5 h-5" />
-                <span><a href="youtube.com/@theiacode">Youtube</a></span>
+                <span><a href="youtube.com/@theiacode" className="no-underline text-gray-900 dark:text-gray-100 hover:text-blue-500 dark:hover:text-blue-500 transition-colors duration-300">Youtube</a></span>
               </div>
               <div className="flex items-center gap-3 hover:text-blue-500 cursor-pointer">
                 <Linkedin className="w-5 h-5" />
-                <span><a href="linkedin.com/in/theiaa7">LinkedIn</a></span>
+                <span><a href="linkedin.com/in/theiaa7" className="no-underline text-gray-900 dark:text-gray-100 hover:text-blue-500 dark:hover:text-blue-500 transition-colors duration-300">LinkedIn</a></span>
               </div>
               <div className="flex items-center gap-3 hover:text-blue-500 cursor-pointer">
                 <Mail className="w-5 h-5" />
-                <span><a href="ryan.alsty@gmail.com">ryan.alsty@gmail.com</a></span>
+                <span><a href="ryan.alsty@gmail.com" className="no-underline text-gray-900 dark:text-gray-100 hover:text-blue-500 dark:hover:text-blue-500 transition-colors duration-300">ryan.alsty@gmail.com</a></span>
               </div>
               <div className="flex items-center gap-3 hover:text-blue-500 cursor-pointer">
                 <Mail className="w-5 h-5" />
-                <span><a href="bryanpyoh@gmail.com">bryanpyoh@gmail.com</a></span>
+                <span><a href="bryanpyoh@gmail.com" className="no-underline text-gray-900 dark:text-gray-100 hover:text-blue-500 dark:hover:text-blue-500 transition-colors duration-300">bryanpyoh@gmail.com</a></span>
               </div>
             </div>
           </motion.div>
@@ -172,7 +172,7 @@ export default function App() {
                 className="p-3 rounded-xl bg-gray-100 dark:bg-gray-700 shadow cursor-pointer"
               >
                 <h3 className="font-semibold">As a Software Engineer</h3>
-                <p className="text-sm">I’m a passionate software engineer who loves exploring and experimenting with new ideas. I enjoy working in a team environment where I can learn from others, share insights, and grow together. While I may not have years of experience yet, I bring strong curiosity, adaptability, and enthusiasm to every project I take on. For me, software engineering isn’t just about writing code—it’s about solving problems, creating meaningful solutions, and continuously improving.</p>
+                <p className="text-sm text-justify">I’m a passionate software engineer who loves exploring and experimenting with new ideas. I enjoy working in a team environment where I can learn from others, share insights, and grow together. While I may not have years of experience yet, I bring strong curiosity, adaptability, and enthusiasm to every project I take on. For me, software engineering isn’t just about writing code—it’s about solving problems, creating meaningful solutions, and continuously improving.</p>
               </motion.div>
 
               <motion.div
@@ -180,7 +180,7 @@ export default function App() {
                 className="p-3 rounded-xl bg-gray-100 dark:bg-gray-700 shadow cursor-pointer"
               >
                 <h3 className="font-semibold">As a Data Analyst</h3>
-                <p className="text-sm">Whilst I mainly focusing on Software Engineering, I am also fascinated by the power of data to uncover insights and drive decisions. My experience includes working with machine learning models, data analysis, and predictive modeling. I enjoy translating raw data into actionable knowledge that can support real-world applications.</p>
+                <p className="text-sm text-justify">Whilst I mainly focusing on Software Engineering, I am also fascinated by the power of data to uncover insights and drive decisions. My experience includes working with machine learning models, data analysis, and predictive modeling. I enjoy translating raw data into actionable knowledge that can support real-world applications.</p>
               </motion.div>
 
             </div>
@@ -201,7 +201,7 @@ export default function App() {
                   whileHover={{ scale: 1.02 }}
                   className="p-3 rounded-xl bg-gray-100 dark:bg-gray-700 shadow cursor-pointer"
                 >
-                  <h3 className="font-semibold">{exp.title}</h3>
+                  <h3 className="font-semibold"><b>{exp.title}</b></h3>
                   <p className="text-m"><b>{exp.time}</b> at {exp.at}</p>
                   <hr class="my-4 border-gray-800"></hr>
                   <p className="text-sm text-justify mt-2 mb-2">{exp.desc}</p>
