@@ -1,9 +1,14 @@
 import { useState, useEffect } from "react";
-import { Github, Linkedin, Mail, Sun, Moon, Code, Database, Globe, Terminal, Youtube, ChartLine, BrainCircuit } from "lucide-react";
-import { motion } from "framer-motion";
+import { Github, Linkedin, Mail, Sun, Moon, Code, Database, Globe, Terminal, Youtube, ChartLine, BrainCircuit, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+
+
 
 export default function App() {
-    const experiences = [
+  const [page, setPage] = useState("about");
+  const [selectedProject, setSelectedProject] = useState(null);
+
+  const experiences = [
     {
       title: "Production Planner and Inventory Control",
       at: "PT.Mulia Cemerlang Abadi Multi Industry",
@@ -27,6 +32,65 @@ export default function App() {
       at: "Koding Next",
       time: "1 Year.",
       desc: "Teaching advance website development, and game development.",
+    },
+  ];
+
+  const projects = [
+    {
+      id: 1,
+      title: "Portfolio Website",
+      desc: "A modern personal portfolio built with React, TailwindCSS, and Framer Motion. Designed to showcase skills and experiences with smooth animations, dark/light mode, and responsive layouts.Focused on clean UI, accessibility, and subtle transitions that make the user experience engaging and minimalistic.",
+      demo: "https://bryanpyoh.com/",
+      github: "https://github.com/theiaa7/my-portofolio",
+      tech: ["React", "Tailwind", "Framer Motion"],
+    },
+    {
+      id: 2,
+      title: "ERP System Total Production",
+      desc: "A modular Enterprise Resource Planning (ERP) system that integrates production, inventory, and employee management. Designed to streamline business operations by providing real-time visibility into resources, orders, and workflow efficiency. Includes user authentication, data visualization, and scalable architecture.",
+      demo: "https://erps.bryanpyoh.com/",
+      github: "https://github.com/theiaa7/erps",
+      tech: ["React", "Express.js", "Prisma", "PostgreSQL"],
+    },
+    {
+      id: 3,
+      title: "Student Performance Prediction",
+      desc: "A data science project using XGBoost to analyze and predict factors influencing students’ academic outcomes.",
+      demo: "https://huggingface.co/spaces/bryanpyoh/student-prediction",
+      github: "https://github.com/bryanpyoh/student-performance",
+      tech: ["Python", "XGBoost", "Pandas"],
+    },
+    {
+      id: 4,
+      title: "Inventory Management System",
+      desc: "A full-stack application for managing product inventory, suppliers, and stock movement. Built with an emphasis on data integrity, CRUD efficiency, and seamless backend–frontend communication. Supports search, pagination, and analytics features for smarter inventory tracking.",
+      demo: "https://erps.bryanpyoh.com/",
+      github: "https://github.com/theiaa7/erps",
+      tech: ["Node.js", "Express", "Prisma", "React"],
+    },
+    {
+      id: 5,
+      title: "Inventory Management System",
+      desc: "A full-stack application for managing product inventory, suppliers, and stock movement. Built with an emphasis on data integrity, CRUD efficiency, and seamless backend–frontend communication. Supports search, pagination, and analytics features for smarter inventory tracking.",
+      demo: "https://erps.bryanpyoh.com/",
+      github: "https://github.com/theiaa7/erps",
+      tech: ["Node.js", "Express", "Prisma", "React"],
+    },
+    {
+      id: 6,
+      title: "Google Collab Notebook Collection I",
+      desc: "Collections of my learning and experiments on data science, starting from basics of python until comparing applications between ML Model.",
+      demo: "https://drive.google.com/drive/folders/1F2_5Ckyj7UHlmwaieargRGDZDM3sqJjk?usp=drive_link",
+      github: "https://drive.google.com/drive/folders/1F2_5Ckyj7UHlmwaieargRGDZDM3sqJjk?usp=drive_link",
+      tech: ["Python"],
+    },
+    {
+      id: 7,
+      title: "Google Collab Notebook Collection II",
+      desc: "Collections of my learning and experiments on data science, starting from basics of python until comparing applications between ML Model.",
+      demo: "https://drive.google.com/drive/folders/1ai1u-yfachTmlPB0LYod5fuD9upVuazf?usp=drive_link",
+      github: "https://drive.google.com/drive/folders/1ai1u-yfachTmlPB0LYod5fuD9upVuazf?usp=drive_link",
+      tech: ["Python"],
     },
   ];
   const [darkMode, setDarkMode] = useState(false);
@@ -158,32 +222,170 @@ export default function App() {
             </p>
           </motion.div>
 
-          {/* Projects */}
+          {/* About */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="p-4 rounded-2xl shadow-lg bg-white dark:bg-gray-800"
+            className="relative p-4 rounded-2xl shadow-lg bg-white dark:bg-gray-800 overflow-visible"
           >
-            <h2 className="text-2xl font-bold mb-4">About</h2>
-            <div className="grid sm:grid-cols-1 gap-4">
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                className="p-3 rounded-xl bg-gray-100 dark:bg-gray-700 shadow cursor-pointer"
-              >
-                <h3 className="font-semibold">As a Software Engineer</h3>
-                <p className="text-sm text-justify">I’m a passionate software engineer who loves exploring and experimenting with new ideas. I enjoy working in a team environment where I can learn from others, share insights, and grow together. While I may not have years of experience yet, I bring strong curiosity, adaptability, and enthusiasm to every project I take on. For me, software engineering isn’t just about writing code—it’s about solving problems, creating meaningful solutions, and continuously improving.</p>
-              </motion.div>
-
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                className="p-3 rounded-xl bg-gray-100 dark:bg-gray-700 shadow cursor-pointer"
-              >
-                <h3 className="font-semibold">As a Data Analyst</h3>
-                <p className="text-sm text-justify">Whilst I mainly focusing on Software Engineering, I am also fascinated by the power of data to uncover insights and drive decisions. My experience includes working with machine learning models, data analysis, and predictive modeling. I enjoy translating raw data into actionable knowledge that can support real-world applications.</p>
-              </motion.div>
-
+            {/* HEADER TAB SWITCHER */}
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-2xl font-bold">About & Projects</h2>
+              <div className="flex gap-2">
+                <button
+                  onClick={() => setPage("about")}
+                  className={`px-3 py-1 rounded-lg text-sm font-semibold transition ${page === "about"
+                    ? "bg-blue-500 text-white"
+                    : "bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+                    }`}
+                >
+                  About
+                </button>
+                <button
+                  onClick={() => setPage("projects")}
+                  className={`px-3 py-1 rounded-lg text-sm font-semibold transition ${page === "projects"
+                    ? "bg-blue-500 text-white"
+                    : "bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+                    }`}
+                >
+                  Projects
+                </button>
+              </div>
             </div>
+
+            {/* CONTENT AREA */}
+            <div className="relative">
+              <AnimatePresence mode="wait">
+                {page === "about" ? (
+                  <motion.div
+                    key="about"
+                    initial={{ opacity: 0, x: 60 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -60 }}
+                    transition={{ duration: 0.45, ease: "easeInOut" }}
+                    className="grid sm:grid-cols-1 gap-4 min-h-[320px] h-[320px] pr-2"
+                  >
+                    {/* About items (tidak perlu scroll) */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.35 }}
+                      whileHover={{ scale: 1.02 }}
+                      className="p-3 rounded-xl bg-gray-100 dark:bg-gray-700 shadow"
+                    >
+                      <h3 className="font-semibold">As a Software Engineer</h3>
+                      <p className="text-sm text-justify">I’m a passionate software engineer who loves exploring and experimenting with new ideas. I enjoy working in a team environment where I can learn from others, share insights, and grow together. While I may not have years of experience yet, I bring strong curiosity, adaptability, and enthusiasm to every project I take on. For me, software engineering isn’t just about writing code—it’s about solving problems, creating meaningful solutions, and continuously improving.</p>
+                    </motion.div>
+
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.35, delay: 0.08 }}
+                      whileHover={{ scale: 1.02 }}
+                      className="p-3 rounded-xl bg-gray-100 dark:bg-gray-700 shadow"
+                    >
+                      <h3 className="font-semibold">As a Data Analyst</h3>
+                      <p className="text-sm text-justify">Whilst I mainly focusing on Software Engineering, I am also fascinated by the power of data to uncover insights and drive decisions. My experience includes working with machine learning models, data analysis, and predictive modeling. I enjoy translating raw data into actionable knowledge that can support real-world applications.</p>
+                    </motion.div>
+                  </motion.div>
+                ) : (
+                  /* Projects: this wrapper has fixed height + scroll enabled */
+                  <motion.div
+                    key="projects"
+                    initial={{ opacity: 0, x: -60 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 60 }}
+                    transition={{ duration: 0.45, ease: "easeInOut" }}
+                    className="min-h-[320px] h-[320px] overflow-y-auto pr-2
+                   [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+                  >
+                    <div className="grid sm:grid-cols-1 gap-4 pb-4">
+                      {/* project items */}
+                      {projects.map((p) => (
+                        <motion.div
+                          key={p.id}
+                          initial={{ opacity: 0, y: 30 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.35 }}
+                          whileHover={{ scale: 1.02 }}
+                          className="p-3 rounded-xl bg-gray-100 dark:bg-gray-700 shadow relative"
+                        >
+                          <h3 className="font-semibold">{p.title}</h3>
+                          <p className="text-sm text-justify">{p.desc}</p>
+                          <button
+                            onClick={() => setSelectedProject(p)}
+                            className="absolute bottom-3 right-3 text-sm text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1 cursor-pointer"
+                          >
+                            See project →
+                          </button>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/*Modal Selection*/}
+            <AnimatePresence>
+              {selectedProject && (
+                <motion.div
+                  className="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  onClick={() => setSelectedProject(null)}
+                >
+                  <motion.div
+                    onClick={(e) => e.stopPropagation()}
+                    initial={{ scale: 0.9, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 0.9, opacity: 0 }}
+                    className="relative bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg max-w-md w-full"
+                  >
+                    <button
+                      onClick={() => setSelectedProject(null)}
+                      className="absolute top-3 right-3 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition"
+                    >
+                      <X size={20} />
+                    </button>
+                    <h3 className="text-xl font-bold mb-2">{selectedProject.title}</h3>
+                    <p className="text-sm mb-4 text-justify">
+                      {selectedProject.desc}
+                    </p>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {selectedProject.tech.map((t) => (
+                        <span
+                          key={t}
+                          className="text-xs bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300 px-2 py-1 rounded"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="flex justify-end gap-3">
+                      <a
+                        href={selectedProject.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
+                      >
+                        GitHub
+                      </a>
+                      <a
+                        href={selectedProject.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
+                      >
+                        Live Demo →
+                      </a>
+                    </div>
+                  </motion.div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.div>
 
           {/* Experience */}
