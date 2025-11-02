@@ -48,25 +48,25 @@ export default function App() {
       id: 2,
       title: "ERP System Total Production",
       desc: "A modular Enterprise Resource Planning (ERP) system that integrates production, inventory, and employee management. Designed to streamline business operations by providing real-time visibility into resources, orders, and workflow efficiency. Includes user authentication, data visualization, and scalable architecture.",
-      demo: "https://erps.bryanpyoh.com/",
+      demo: "https://erp.bryanpyoh.com/",
       github: "https://github.com/theiaa7/erps",
       tech: ["React", "Express.js", "Prisma", "PostgreSQL"],
     },
     {
       id: 3,
-      title: "Student Performance Prediction",
-      desc: "A data science project using XGBoost to analyze and predict factors influencing students’ academic outcomes.",
-      demo: "https://huggingface.co/spaces/bryanpyoh/student-prediction",
-      github: "https://github.com/bryanpyoh/student-performance",
-      tech: ["Python", "XGBoost", "Pandas"],
+      title: "Student Thesis Management (JOINT PROJECT)",
+      desc: "Helping students manage thesis stuff, starting from lecture scheduling, online lecture session, and trial scheduling, live with Lecturer and systemated flow.",
+      demo: "https://doosenku.abiila.com/",
+      github: "https://bryanpyoh.com/",
+      tech: ["React", "Express.js", "Prisma", "PostgreSQL", "Python", "XGBoost", "Pandas"],
     },
     {
       id: 4,
-      title: "Inventory Management System",
-      desc: "A full-stack application for managing product inventory, suppliers, and stock movement. Built with an emphasis on data integrity, CRUD efficiency, and seamless backend–frontend communication. Supports search, pagination, and analytics features for smarter inventory tracking.",
-      demo: "https://erps.bryanpyoh.com/",
-      github: "https://github.com/theiaa7/erps",
-      tech: ["Node.js", "Express", "Prisma", "React"],
+      title: "Google Developer Group Bogor Website (JOINT PROJECT)",
+      desc: "Official website for GDG Bogor.",
+      demo: "https://gdgbogor.com/",
+      github: "https://bryanpyoh.com/",
+      tech: ["React", "Express.js", "Prisma", "PostgreSQL"],
     },
     {
       id: 5,
@@ -78,6 +78,14 @@ export default function App() {
     },
     {
       id: 6,
+      title: "Inventory Management System",
+      desc: "A full-stack application for managing product inventory, suppliers, and stock movement. Built with an emphasis on data integrity, CRUD efficiency, and seamless backend–frontend communication. Supports search, pagination, and analytics features for smarter inventory tracking.",
+      demo: "https://erps.bryanpyoh.com/",
+      github: "https://github.com/theiaa7/erps",
+      tech: ["Node.js", "Express", "Prisma", "React"],
+    },
+    {
+      id: 7,
       title: "Google Collab Notebook Collection I",
       desc: "Collections of my learning and experiments on data science, starting from basics of python until comparing applications between ML Model.",
       demo: "https://drive.google.com/drive/folders/1F2_5Ckyj7UHlmwaieargRGDZDM3sqJjk?usp=drive_link",
@@ -85,7 +93,7 @@ export default function App() {
       tech: ["Python"],
     },
     {
-      id: 7,
+      id: 8,
       title: "Google Collab Notebook Collection II",
       desc: "Collections of my learning and experiments on data science, starting from basics of python until comparing applications between ML Model.",
       demo: "https://drive.google.com/drive/folders/1ai1u-yfachTmlPB0LYod5fuD9upVuazf?usp=drive_link",
@@ -150,15 +158,15 @@ export default function App() {
             <div className="space-y-2 transition-colors duration-300">
               <div className="flex items-center gap-3 cursor-pointer group hover:text-blue-500">
                 <Github className="w-5 h-5 transition-colors duration-300 group-hover:text-blue-500" />
-                <span><a href="github.com/theiaa7" className="no-underline text-gray-900 dark:text-gray-100 hover:text-blue-500 dark:hover:text-blue-500 transition-colors duration-300">Github</a></span>
+                <span><a href="https://www.github.com/theiaa7" className="no-underline text-gray-900 dark:text-gray-100 hover:text-blue-500 dark:hover:text-blue-500 transition-colors duration-300">Github</a></span>
               </div>
               <div className="flex items-center gap-3 hover:text-blue-500 cursor-pointer">
                 <Youtube className="w-5 h-5" />
-                <span><a href="youtube.com/@theiacode" className="no-underline text-gray-900 dark:text-gray-100 hover:text-blue-500 dark:hover:text-blue-500 transition-colors duration-300">Youtube</a></span>
+                <span><a href="https://www.youtube.com/@theiacode" className="no-underline text-gray-900 dark:text-gray-100 hover:text-blue-500 dark:hover:text-blue-500 transition-colors duration-300">Youtube</a></span>
               </div>
               <div className="flex items-center gap-3 hover:text-blue-500 cursor-pointer">
                 <Linkedin className="w-5 h-5" />
-                <span><a href="linkedin.com/in/theiaa7" className="no-underline text-gray-900 dark:text-gray-100 hover:text-blue-500 dark:hover:text-blue-500 transition-colors duration-300">LinkedIn</a></span>
+                <span><a href="https://www.linkedin.com/in/theiaa7/" className="no-underline text-gray-900 dark:text-gray-100 hover:text-blue-500 dark:hover:text-blue-500 transition-colors duration-300">LinkedIn</a></span>
               </div>
               <div className="flex items-center gap-3 hover:text-blue-500 cursor-pointer">
                 <Mail className="w-5 h-5" />
@@ -313,6 +321,8 @@ export default function App() {
                         >
                           <h3 className="font-semibold">{p.title}</h3>
                           <p className="text-sm text-justify">{p.desc}</p>
+                          <br />
+                          <br />
                           <button
                             onClick={() => setSelectedProject(p)}
                             className="absolute bottom-3 right-3 text-sm text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1 cursor-pointer"
